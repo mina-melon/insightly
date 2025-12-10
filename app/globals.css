@@ -103,7 +103,7 @@
 
 @layer base{
   * {
-    @apply bg-pgbg text-pgfg font-body
+    @apply text-pgfg font-body bg-transparent
   }
   h1,h2{
     @apply text-zinc-200 text-5xl/9 lg:text-7xl font-medium font-heading antialiased text-center
@@ -118,7 +118,7 @@
     @apply flex flex-row gap-2
   }
   .nav{
-    @apply bg-pgbg flex flex-row justify-between px-[26px] py-8 border-b-2 border-b-zinc-900 items-center
+    @apply bg-pgbg/10 backdrop-blur-md flex flex-row justify-between px-[26px] py-8 border-b-2 border-b-zinc-900 items-center
   }
   .p-btn{
     @apply text-xl bg-primary2 px-6 py-4 rounded-full hover:bg-darker1 hover:outline-6 outline-primary/20

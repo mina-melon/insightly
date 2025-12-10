@@ -9,7 +9,7 @@ export default function Nav() {
   const [rotate, setRotate] = useState(false);
   return (
     <div>
-      {/* logo */}
+      {/* desktop nav */}
       <nav className="nav">
         <div className="logo-container">
           <Image src="/logo.png" alt="logo" width={32} height={32} />
@@ -24,7 +24,7 @@ export default function Nav() {
             setOpen((prev) => !prev);
           }}
         />
-        <div className="md:hidden lg:flex flex-row justify-between gap-30 items-center">
+        <div className="md:hidden lg:flex flex-row justify-between gap-30 items-center bg-transparent">
           <div>
             <ul className="flex flex-row list-none gap-20 cursor-pointer text-xl items-center">
               <motion.li

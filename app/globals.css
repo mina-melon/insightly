@@ -112,16 +112,19 @@
 
 @layer utilities {
   .logo{
-    @apply text-3xl text-white font-logo
+    @apply text-2xl text-white font-logo
   }
   .logo-container{
-    @apply flex flex-row gap-2
+    @apply flex flex-row gap-2 items-center
   }
   .nav{
-    @apply bg-pgbg/10 backdrop-blur-md flex flex-row justify-between px-[26px] py-8 border-b-2 border-b-zinc-900 items-center
+    @apply bg-pgbg/10 backdrop-blur-md flex flex-row justify-between px-[26px] py-5 border-b-2 border-b-zinc-900 items-center
   }
   .p-btn{
-    @apply text-xl bg-primary2 px-6 py-4 rounded-full hover:bg-darker1 hover:outline-6 outline-primary/20
+    @apply text-base bg-primary2 px-6 py-3 rounded-full hover:bg-darker1 hover:outline-6 outline-primary2/20
+  }
+  .s-pbtn{
+    @apply text-sm bg-primary2 px-5 py-3 rounded-full hover:bg-darker1 hover:outline-6 outline-primary2/20 cursor-pointer
   }
 }
 

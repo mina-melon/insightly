@@ -32,7 +32,10 @@ export default function Landing() {
           <button className="p-btn">Start for free</button>
         </main>
       </section>
-      <LogoLoopComp/>
+      <div className='px-20'>
+        <LogoLoopComp/>
+      </div>
+      
       <Section2 />
     </>
   );

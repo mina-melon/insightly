@@ -22,7 +22,7 @@ import LogoLoop from '@/components/LogoLoop'
 
 const imageLogos = [
   { src: "/nextjs.png", alt: "Company 1",  width: 48, height: 48 },
-  { src: "/mongoDB.png", alt: "Company 2", width: 48, height: 48 },
+  { src: "/mongoDB-new.png", alt: "Company 2", width: 48, height: 48 },
   { src: "/stripe_logo.png", alt: "Company 3", width: 48, height: 48 },
 ];
 
@@ -39,7 +39,7 @@ export default function LogoLoopComp(){
         hoverSpeed={0}
         scaleOnHover
         fadeOut
-        fadeOutColor="transparent"
+        fadeOutColor="#040405"
         ariaLabel="Technology partners"
       />
     </div>

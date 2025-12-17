@@ -28,7 +28,7 @@ const imageLogos = [
 
 export default function LogoLoopComp(){
   return (
-    <div style={{ height: '200px',  position: 'relative', overflow: 'hidden',}}>
+    <div style={{ height: '100px',  position: 'relative', overflow: 'hidden',}}>
       {/* Basic horizontal loop */}
       <LogoLoop
         logos={imageLogos}

@@ -1,7 +1,7 @@
 /* globals.css */
 
 /* Import fonts from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?=Poppins&family=Manrope:wght@400;500;600;700&family=Sora&display=swap');
+@import url("https://fonts.googleapis.com/css2?=Poppins&family=Manrope:wght@400;500;600;700&family=Sora&display=swap");
 @import "tailwindcss";
 
 /* @custom-variant dark (&:is(.dark *)); */
@@ -10,9 +10,9 @@
   --pagebg: #06040a;
   --pageforeground: #ffffff;
   --primary: oklch(0.21 0.006 285.885);
-  --primary2: #6D39F2;
-  --lighter: #BBA9F3;
-  --darker1: #571BF2;
+  --primary2: #6d39f2;
+  --lighter: #bba9f3;
+  --darker1: #571bf2;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
@@ -47,7 +47,7 @@
 }
 
 @theme inline {
-  --font-heading: "Manrope", sans-serif; 
+  --font-heading: "Manrope", sans-serif;
   --font-body: "Poppins", sans-serif;
   --font-logo: "Sora", sans-serif;
   --color-pgbg: var(--pagebg);
@@ -101,30 +101,65 @@
   }
 } */
 
-@layer base{
+@layer base {
   * {
-    @apply text-pgfg font-body bg-transparent
+    @apply text-pgfg font-body bg-transparent;
   }
-  h1,h2{
-    @apply text-zinc-200 text-5xl/9 lg:text-7xl font-medium font-heading antialiased text-center
+  h1,
+  h2 {
+    @apply text-zinc-200 text-5xl/9 lg:text-7xl font-medium font-heading antialiased text-center;
   }
 }
 
 @layer utilities {
-  .logo{
-    @apply text-2xl text-white font-logo
+  .logo {
+    @apply text-2xl text-white font-logo;
   }
-  .logo-container{
-    @apply flex flex-row gap-2 items-center
+  .logo-container {
+    @apply flex flex-row gap-2 items-center;
   }
-  .nav{
-    @apply bg-pgbg/10 backdrop-blur-md flex flex-row justify-between px-[26px] py-5 border-b-2 border-b-zinc-900 items-center
+  .nav {
+    @apply bg-pgbg/10 backdrop-blur-md flex flex-row justify-between px-[26px] py-5 border-b-2 border-b-zinc-900 items-center;
   }
-  .p-btn{
-    @apply text-base bg-primary2 px-6 py-3 rounded-full hover:bg-darker1 hover:outline-6 outline-primary2/20
+  .p-btn {
+    @apply text-base bg-primary2 px-6 py-3 rounded-full hover:bg-darker1 hover:outline-6 outline-primary2/20;
   }
-  .s-pbtn{
-    @apply text-sm bg-primary2 px-5 py-3 rounded-full hover:bg-darker1 hover:outline-6 outline-primary2/20 cursor-pointer
+  .s-pbtn {
+    @apply text-sm bg-primary2 px-5 py-3 rounded-full hover:bg-darker1 hover:outline-6 outline-primary2/20 cursor-pointer;
+  }
+  .s-btn{
+    @apply text-base text-black bg-white/80 py-3 px-5 rounded-full hover:bg-white/95 cursor-pointer
+  }
+  .section-head {
+    @apply text-sm font-semibold text-[#BBA9F3] mb-3;
+  }
+  .section-sub {
+    @apply text-white text-4xl font-bold mb-3;
+  }
+  .section-hp {
+    @apply text-gray-400;
+  }
+  .section-spacing {
+    @apply mt-35 mb-10;
+  }
+  .card-grad {
+    @apply bg-[linear-gradient(135deg,rgba(8,8,15,1)_0%,rgba(18,18,30,1)_100%)] border-gray-700;
+  }
+  .icon-grad {
+    @apply bg-[linear-gradient(135deg,rgba(28,28,45,1),rgba(44,44,65,1))];
+  }
+  .section-marg {
+    @apply ml-6 mr-6;
+  }
+  .popular-grad {
+    @apply bg-[linear-gradient(to_bottom,#08080F_0%,#0c0918_30%,#170e30_60%,#1f1340_100%)]
+ border border-gray-700 px-6 py-6 rounded-2xl h-full;
+  }
+  .pricing-grad{
+    @apply bg-[#05050a] border border-gray-700 px-6 py-6 rounded-2xl h-full;
+  }
+  .faq-grad{
+     @apply bg-[linear-gradient(to_bottom,#08080F_0%,#0c0918_30%,#170e30_60%,#1f1340_100%)] border border-gray-700;
   }
 }
 

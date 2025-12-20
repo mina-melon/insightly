@@ -1,14 +1,9 @@
-import React from 'react';
-import Nav from './Nav';
+import React from "react";
 
-export default function LandingLayout({children}:{children:React.ReactNode}){
-  return (
-    <div>
-    <div className='fixed top-0 left-0 w-full z-50'>
-      <Nav />
-    </div>
-    
-    {children}
-    </div>
-  )
+export default function LandingLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <div>{children}</div>;
 }

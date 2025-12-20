@@ -2,8 +2,9 @@
 import SpotlightCard from "@/components/SpotlightCard";
 import { Eye, TrendingUp, FileDown, Zap } from "lucide-react";
 import { motion } from "motion/react";
+import {forwardRef} from 'react';
 
-export default function Solution() {
+const Solution = forwardRef<HTMLDivElement>((props, ref) => {
   const features = [
     {
       icon: Eye,
@@ -35,7 +36,9 @@ export default function Solution() {
     },
   ];
   return (
-    <section className="section-spacing section-marg">
+    <section className="section-spacing section-marg"
+    ref={ref}
+    >
       {/* heading */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -109,4 +112,7 @@ export default function Solution() {
         </motion.div>
     </section>
   );
-}
+}) 
+
+Solution.displayName = 'Solution';
+export default Solution;

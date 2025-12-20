@@ -1,3 +1,5 @@
+'use client'
+import {useRef} from 'react'
 import Threads from "../../../components/Threads";
 import Section2 from "@/app/components/landing/Section2";
 import LogoLoopComp from "@/app/components/landing/LogoLoopComp";
@@ -8,10 +10,27 @@ import Features from "@/app/components/landing/Features";
 import Demo from "@/app/components/landing/Demo";
 import Pricing from "@/app/components/landing/Pricing";
 import Faq from "@/app/components/landing/FAQ";
+import FinalCTA from "@/app/components/landing/FinalCTA";
+import Nav from "./Nav";
 
 export default function Landing() {
+  const faqsRef = useRef<HTMLDivElement | null>(null);
+  const benefitsRef = useRef<HTMLDivElement | null>(null);
+  const featuresRef = useRef<HTMLDivElement | null>(null);
+  const testimonialsRef = useRef<HTMLDivElement | null>(null);
+  const pricingRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollTo = (ref:React.RefObject<HTMLDivElement | null>) => {
+    ref.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }
   return (
     <>
+    <div className='fixed top-0 left-0 w-full z-50'>
+      <Nav onScroll={scrollTo} refs={{faqsRef, benefitsRef, featuresRef, testimonialsRef, pricingRef}}/>
+    </div>
       <section className="relative mb-20 max-w-[1300px]">
         {/* Background Threads */}
         <div className="absolute inset-0 top-0 left-0 -z-10 h-[400px] w-full max-w-full overflow-x-hidden">
@@ -44,13 +63,14 @@ export default function Landing() {
         <LogoLoopComp />
       </div>
       <Section2 />
-      <Testimonials/>
+      <Testimonials ref={testimonialsRef}/>
       <Problem/>
-      <Solution/>
-      <Features/>
+      <Solution ref={benefitsRef}/>
+      <Features ref={featuresRef}/>
       <Demo/>
-      <Pricing/>
-      <Faq/>
+      <Pricing ref={pricingRef}/>
+      <Faq ref={faqsRef}/>
+      <FinalCTA/>
     </>
   );
 }

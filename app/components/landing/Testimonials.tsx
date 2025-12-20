@@ -1,8 +1,9 @@
 "use client";
 import { motion } from "motion/react";
 import { Star } from "lucide-react";
+import {forwardRef} from 'react';
 
-export default function Testimonials() {
+const Testimonials = forwardRef<HTMLDivElement>((props, ref) => {
   const testimonials = [
     {
       name: "Sarah Chen",
@@ -27,7 +28,9 @@ export default function Testimonials() {
     },
   ];
   return (
-    <section className='section-marg section-spacing'>
+    <section className='section-marg section-spacing'
+    ref={ref}
+    >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -80,4 +83,7 @@ export default function Testimonials() {
       </motion.div>
     </section>
   );
-}
+})
+
+Testimonials.displayName = "Testimonials";
+export default Testimonials;

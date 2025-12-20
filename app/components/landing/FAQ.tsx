@@ -2,8 +2,9 @@
 import { Plus, Minus } from "lucide-react";
 import { useState } from "react";
 import { motion } from "motion/react";
+import { forwardRef } from "react";
 
-export default function Faq() {
+const Faq = forwardRef<HTMLDivElement>((props, ref) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const faqs = [
     {
@@ -48,7 +49,7 @@ export default function Faq() {
     },
   ];
   return (
-    <section className="section-spacing section-marg">
+    <section className="section-spacing section-marg" ref={ref}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* heading */}
         <motion.div
@@ -78,9 +79,7 @@ export default function Faq() {
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className={`w-full border hover:border-blue-500/50 rounded-xl p-6 text-left transition-all ${
-                  openIndex===index
-                  ? 'faq-grad'
-                  : 'card-grad'
+                  openIndex === index ? "faq-grad" : "card-grad"
                 }`}
               >
                 <div className="flex items-start justify-between gap-4">
@@ -100,16 +99,18 @@ export default function Faq() {
                   </motion.div>
                 </div>
 
-                 <motion.div
+                <motion.div
                   initial={false}
                   animate={{
-                    height: openIndex === index ? 'auto' : 0,
-                    opacity: openIndex === index ? 1 : 0
+                    height: openIndex === index ? "auto" : 0,
+                    opacity: openIndex === index ? 1 : 0,
                   }}
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <p className="text-gray-400 mt-4 leading-relaxed">{faq.answer}</p>
+                  <p className="text-gray-400 mt-4 leading-relaxed">
+                    {faq.answer}
+                  </p>
                 </motion.div>
               </button>
             </motion.div>
@@ -135,4 +136,7 @@ export default function Faq() {
       </div>
     </section>
   );
-}
+});
+
+Faq.displayName = "FAQ";
+export default Faq;

@@ -4,9 +4,21 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { motion } from "motion/react";
 
-export default function Nav() {
+type NavProps = {
+  onScroll: (ref: React.RefObject<HTMLDivElement | null>) => void;
+  refs: {
+    faqsRef: React.RefObject<HTMLDivElement | null>;
+    benefitsRef: React.RefObject<HTMLDivElement | null>;
+    featuresRef: React.RefObject<HTMLDivElement | null>;
+    testimonialsRef: React.RefObject<HTMLDivElement | null>;
+    pricingRef: React.RefObject<HTMLDivElement | null>;
+  };
+};
+
+export default function Nav({ onScroll, refs }: NavProps) {
   const [open, setOpen] = useState(false);
   const [rotate, setRotate] = useState(false);
+
   return (
     <div>
       {/* desktop nav */}
@@ -33,14 +45,8 @@ export default function Nav() {
                   x: 10,
                   transition: { type: "spring" },
                 }}
-              >
-                Overview
-              </motion.li>
-              <motion.li
-                initial={{ x: 0 }}
-                whileHover={{
-                  x: 10,
-                  transition: { type: "spring" },
+                onClick={() => {
+                  onScroll(refs.benefitsRef);
                 }}
               >
                 Benefits
@@ -51,6 +57,9 @@ export default function Nav() {
                   x: 10,
                   transition: { type: "spring" },
                 }}
+                onClick={() => {
+                  onScroll(refs.featuresRef);
+                }}
               >
                 Features
               </motion.li>
@@ -59,6 +68,9 @@ export default function Nav() {
                 whileHover={{
                   x: 10,
                   transition: { type: "spring" },
+                }}
+                onClick={() => {
+                  onScroll(refs.testimonialsRef);
                 }}
               >
                 Testimonials
@@ -69,8 +81,23 @@ export default function Nav() {
                   x: 10,
                   transition: { type: "spring" },
                 }}
+                onClick={() => {
+                  onScroll(refs.pricingRef);
+                }}
               >
                 Pricing
+              </motion.li>
+              <motion.li
+                initial={{ x: 0 }}
+                whileHover={{
+                  x: 10,
+                  transition: { type: "spring" },
+                }}
+                onClick={() => {
+                  onScroll(refs.faqsRef);
+                }}
+              >
+                FAQ
               </motion.li>
             </ul>
           </div>
@@ -126,7 +153,7 @@ export default function Nav() {
           <div className="X">
             <X
               color="white"
-              size={50}
+              size={30}
               className="cursor-pointer lg:hidden"
               onClick={() => {
                 setOpen((prev) => !prev);
@@ -135,7 +162,7 @@ export default function Nav() {
           </div>
         </div>
         <div className="menu flex flex-col justify-center items-center bg-transparent gap-16">
-          <ul className="flex flex-col list-none gap-10 items-center cursor-pointer text-xl bg-transparent">
+          <ul className="flex flex-col list-none gap-10 items-center cursor-pointer text-base bg-transparent">
             <motion.li
               className="bg-transparent"
               initial={{ scale: 1 }}
@@ -143,15 +170,9 @@ export default function Nav() {
                 scale: 1.1,
                 transition: { type: "spring" },
               }}
-            >
-              Overview
-            </motion.li>
-            <motion.li
-              className="bg-transparent"
-              initial={{ scale: 1 }}
-              whileHover={{
-                scale: 1.1,
-                transition: { type: "spring" },
+              onClick={() => {
+                onScroll(refs.benefitsRef);
+                setOpen((prev) => !prev);
               }}
             >
               Benefits
@@ -163,6 +184,10 @@ export default function Nav() {
                 scale: 1.1,
                 transition: { type: "spring" },
               }}
+              onClick={() => {
+                onScroll(refs.featuresRef);
+                setOpen((prev) => !prev);
+              }}
             >
               Features
             </motion.li>
@@ -172,6 +197,10 @@ export default function Nav() {
               whileHover={{
                 scale: 1.1,
                 transition: { type: "spring" },
+              }}
+              onClick={() => {
+                onScroll(refs.testimonialsRef);
+                setOpen((prev) => !prev);
               }}
             >
               Testimonials
@@ -183,8 +212,26 @@ export default function Nav() {
                 scale: 1.1,
                 transition: { type: "spring" },
               }}
+              onClick={() => {
+                onScroll(refs.pricingRef);
+                setOpen((prev) => !prev);
+              }}
             >
               Pricing
+            </motion.li>
+            <motion.li
+              className="bg-transparent"
+              initial={{ scale: 1 }}
+              whileHover={{
+                scale: 1.1,
+                transition: { type: "spring" },
+              }}
+              onClick={() => {
+                onScroll(refs.faqsRef);
+                setOpen((prev) => !prev);
+              }}
+            >
+              FAQ
             </motion.li>
           </ul>
           <button

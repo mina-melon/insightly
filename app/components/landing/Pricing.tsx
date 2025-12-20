@@ -1,9 +1,10 @@
 "use client";
 import { motion } from "motion/react";
 import { Sparkles, Check } from "lucide-react";
-import RotatingButton from '@/components/RotatingButton'
+import RotatingButton from "@/components/RotatingButton";
+import { forwardRef } from "react";
 
-export default function Pricing() {
+const Pricing = forwardRef<HTMLDivElement>((props, ref) => {
   const plans = [
     {
       name: "Starter",
@@ -63,7 +64,7 @@ export default function Pricing() {
     },
   ];
   return (
-    <section className="section-spacing section-marg">
+    <section className="section-spacing section-marg" ref={ref}>
       {/* heading */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -122,9 +123,9 @@ export default function Pricing() {
                   </div>
                 </div>
                 <RotatingButton
-                arrowColor='white'
-                buttonClass='s-pbtn'
-                label='Sign up with Pro'
+                  arrowColor="white"
+                  buttonClass="s-pbtn"
+                  label="Sign up with Pro"
                 />
               </div>
             ) : (
@@ -151,22 +152,33 @@ export default function Pricing() {
                     </ul>
                   </div>
                 </div>
-                <RotatingButton label='Sign up for free' buttonClass ='s-btn' arrowColor='black' />
+                <RotatingButton
+                  label="Sign up for free"
+                  buttonClass="s-btn"
+                  arrowColor="black"
+                />
               </div>
             )}
           </motion.div>
         ))}
       </div>
       <motion.div
-       initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 text-center"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="mt-16 text-center"
       >
-         <p className="text-gray-400 mb-4">All plans include a 14-day free trial. No credit card required.</p>
-          <p className="text-sm text-gray-500">Questions? Contact us at my@insightly.com</p>
+        <p className="text-gray-400 mb-4">
+          All plans include a 14-day free trial. No credit card required.
+        </p>
+        <p className="text-sm text-gray-500">
+          Questions? Contact us at my@insightly.com
+        </p>
       </motion.div>
     </section>
   );
-}
+});
+
+Pricing.displayName = "Pricing";
+export default Pricing;

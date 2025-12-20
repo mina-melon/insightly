@@ -8,8 +8,9 @@ import {
   Shield,
 } from "lucide-react";
 import { motion } from "motion/react";
+import {forwardRef} from 'react'
 
-export default function Features() {
+const Features = forwardRef<HTMLDivElement>((props, ref) => {
   const features = [
     {
       icon: Users,
@@ -91,7 +92,9 @@ export default function Features() {
     },
   ];
   return (
-    <section className="section-spacing section-marg">
+    <section className="section-spacing section-marg"
+    ref={ref}
+    >
       {/* heading */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -145,4 +148,7 @@ export default function Features() {
       </div>
     </section>
   );
-}
+});
+
+Features.displayName = 'Features';
+export default Features;
